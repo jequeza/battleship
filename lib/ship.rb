@@ -18,6 +18,8 @@ class Ship
   def sunk?
     if health == 0
       return true
+    else
+      return false
     end
   end
 

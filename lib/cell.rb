@@ -39,26 +39,18 @@ class Cell
     @cell_status += 1
   end
 
-  def render
-    if @cell_status == 1 &&  ship != nil
+  def render(location = false)
+    if location == true && ship!= nil
+      return "S"
+    elsif @ship != nil && ship.sunk? == true
+      return "X"
+    elsif @cell_status == 1 &&  ship != nil
       return "H"
     elsif @cell_status == 1
       return "M"
     elsif  @cell_status == 0
       return "."
-    elsif @ship != nil && ship.sunk == true
-      return "X"
     end
-
-    # if @ship == nil && shot_taken == true
-    #   return "M"
-    # elsif fired_upon? == true && empty? == false
-    #   return "H"
-    # elsif fired_upon? == true && empty? == true && ship.health == 0
-    #   return "X"
-    # else
-    #   return "."
-    # end
   end
 
 
