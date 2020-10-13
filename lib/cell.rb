@@ -4,7 +4,6 @@ class Cell
               :shot_taken,
               :cell_status
 
-
   def initialize(coordinate)
     @coordinate = coordinate
     @ship = nil
@@ -52,6 +51,5 @@ class Cell
       return "."
     end
   end
-
 
 end
