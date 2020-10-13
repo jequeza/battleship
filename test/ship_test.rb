@@ -22,4 +22,6 @@ class ShipTest < MiniTest::Test
     assert_equal true, cruiser.sunk?
   end
 
+  
+
 end
