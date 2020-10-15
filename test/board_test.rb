@@ -41,7 +41,8 @@ class BoardTest < MiniTest::Test
 
     assert_equal true, board.valid_placement?(submarine, ["A1", "A2"])
     assert_equal true, board.valid_placement?(cruiser, ["B1", "C1", "D1"])
-  end
 
+
+  end
 
 end
