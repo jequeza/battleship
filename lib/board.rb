@@ -41,4 +41,10 @@ class Board
      false
     end
   end
+
+  def place(ship_name, coordinates)
+    coordinates.map do |coordinate|
+     @cells[coordinate].place_ship(ship_name)
+    end
+  end
 end

@@ -49,10 +49,6 @@ class BoardTest < MiniTest::Test
 
     board.place(cruiser, ["A1", "A2", "A3"])
 
-    # print board.grid
-    # board.cells["A1"].fire_upon
-    # print board.grid
-
     cell_1 = board.cells["A1"]
     cell_2 = board.cells["A2"]
     cell_3 = board.cells["A3"]
