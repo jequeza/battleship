@@ -57,7 +57,6 @@ class BoardTest < MiniTest::Test
     cell_3.ship
     assert cell_3.ship == cell_2.ship
     assert cell_1.ship == cell_2.ship
-
     assert_instance_of Ship, cell_1.ship
   end
 

@@ -42,9 +42,17 @@ class Board
     end
   end
 
-  def place(ship_name, coordinates)
-    coordinates.map do |coordinate|
-     @cells[coordinate].place_ship(ship_name)
+  def overlap?(coordinates)
+    coordinates.none? do |coord|
+     @cells[coord].empty?
     end
   end
+
+  def place(ship_name, coordinates)
+    coordinates.map do |coordinate|
+     @cells[coordinate].place_ship(ship_name) && !overlap?(coordinates)
+    end
+  end
+
+
 end
