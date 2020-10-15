@@ -1,7 +1,10 @@
+require './lib/check'
+require './lib/ship'
+
 class Board
   attr_reader :name, :cells
 
-  def initialize(name)
+  def initialize(name="default")
     @name = name
     @cells = {
       "A1" => Cell.new("A1"),
@@ -30,6 +33,14 @@ class Board
       false
     end
   end
+
+  def valid_placement?(ship, coordinates)
+   if ship.length == coordinates.length
+    Check.new(coordinates).valid
+  else
+    false
+  end
+ end
 
 
 end
