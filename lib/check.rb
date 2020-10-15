@@ -50,5 +50,6 @@ class Check
     else
       false
     end
+  end
 
 end
