@@ -23,28 +23,18 @@ class Board
       "D1" => Cell.new("D1"),
       "D2" => Cell.new("D2"),
       "D3" => Cell.new("D3"),
-      "D4" => Cell.new("D4"),
+      "D4" => Cell.new("D4")
     }
   end
 
   def render(location = false)
-    if location == true
       "\n#{@name}
         1  2  3  4
-      A #{@cells["A1"].render(true)}  #{@cells["A2"].render(true)}  #{@cells["A3"].render(true)}  #{@cells["A4"].render(true)}
-      B #{@cells["B1"].render(true)}  #{@cells["B2"].render(true)}  #{@cells["B3"].render(true)}  #{@cells["B4"].render(true)}
-      C #{@cells["C1"].render(true)}  #{@cells["C2"].render(true)}  #{@cells["C3"].render(true)}  #{@cells["C4"].render(true)}
-      D #{@cells["D1"].render(true)}  #{@cells["D2"].render(true)}  #{@cells["D3"].render(true)}  #{@cells["D4"].render(true)}
+      A #{@cells["A1"].render(location)}  #{@cells["A2"].render(location)}  #{@cells["A3"].render(location)}  #{@cells["A4"].render(location)}
+      B #{@cells["B1"].render(location)}  #{@cells["B2"].render(location)}  #{@cells["B3"].render(location)}  #{@cells["B4"].render(location)}
+      C #{@cells["C1"].render(location)}  #{@cells["C2"].render(location)}  #{@cells["C3"].render(location)}  #{@cells["C4"].render(location)}
+      D #{@cells["D1"].render(location)}  #{@cells["D2"].render(location)}  #{@cells["D3"].render(location)}  #{@cells["D4"].render(location)}
       "
-    else
-      "\n#{@name}
-        1  2  3  4
-      A #{@cells["A1"].render}  #{@cells["A2"].render}  #{@cells["A3"].render}  #{@cells["A4"].render}
-      B #{@cells["B1"].render}  #{@cells["B2"].render}  #{@cells["B3"].render}  #{@cells["B4"].render}
-      C #{@cells["C1"].render}  #{@cells["C2"].render}  #{@cells["C3"].render}  #{@cells["C4"].render}
-      D #{@cells["D1"].render}  #{@cells["D2"].render}  #{@cells["D3"].render}  #{@cells["D4"].render}
-      "
-    end
   end
 
   def valid_coordinate?(coordinate)
@@ -56,13 +46,13 @@ class Board
   end
 
   def overlap?(coordinates)
-    coordinates.none? do |coord|
+    coordinates.all? do |coord|
      @cells[coord].empty?
     end
   end
 
   def valid_placement?(ship, coordinates)
-    if ship.length == coordinates.length && !overlap?(coordinates)
+    if ship.length == coordinates.length && overlap?(coordinates)
      Check.new(coordinates).valid
     else
      false
