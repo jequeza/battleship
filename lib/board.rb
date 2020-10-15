@@ -1,7 +1,11 @@
+require './lib/check'
+require './lib/ship'
+require 'pry'
+
 class Board
   attr_reader :name, :cells
 
-  def initialize(name)
+  def initialize(name="default")
     @name = name
     @cells = {
       "A1" => Cell.new("A1"),
@@ -19,8 +23,18 @@ class Board
       "D1" => Cell.new("D1"),
       "D2" => Cell.new("D2"),
       "D3" => Cell.new("D3"),
-      "D4" => Cell.new("D4"),
+      "D4" => Cell.new("D4")
     }
+  end
+
+  def render(location = false)
+      "\n#{@name}
+        1  2  3  4
+      A #{@cells["A1"].render(location)}  #{@cells["A2"].render(location)}  #{@cells["A3"].render(location)}  #{@cells["A4"].render(location)}
+      B #{@cells["B1"].render(location)}  #{@cells["B2"].render(location)}  #{@cells["B3"].render(location)}  #{@cells["B4"].render(location)}
+      C #{@cells["C1"].render(location)}  #{@cells["C2"].render(location)}  #{@cells["C3"].render(location)}  #{@cells["C4"].render(location)}
+      D #{@cells["D1"].render(location)}  #{@cells["D2"].render(location)}  #{@cells["D3"].render(location)}  #{@cells["D4"].render(location)}
+      "
   end
 
   def valid_coordinate?(coordinate)
@@ -31,5 +45,24 @@ class Board
     end
   end
 
+  def overlap?(coordinates)
+    coordinates.all? do |coord|
+     @cells[coord].empty?
+    end
+  end
+
+  def valid_placement?(ship, coordinates)
+    if ship.length == coordinates.length && overlap?(coordinates)
+     Check.new(coordinates).valid
+    else
+     false
+    end
+  end
+
+  def place(ship_name, coordinates)
+    coordinates.map do |coordinate|
+     @cells[coordinate].place_ship(ship_name)
+    end
+  end
 
 end
