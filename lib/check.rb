@@ -35,8 +35,13 @@ class Check
   end
 
   def check_2
-    ord_num[1] - ord_num[0] == 1
-  end
+    if ord_num[1] - ord_num[0] == 1 && ord_let[1] - ord_let[0] == 0
+      ordinals[1] - ordinals[0] == 1
+    elsif ord_num[1] - ord_num[0] == 0 && ord_let[1] - ord_let[0] == 1
+      ordinals[1] - ordinals[0] == 1
+    else
+      false
+    end
   end
 
   def check_3
