@@ -18,7 +18,7 @@ class Check
 
   def ord_let
     coordinates.map do |coordinate|
-        coordinate[0].ord
+      coordinate[0].ord
     end
   end
 
@@ -51,5 +51,4 @@ class Check
       false
     end
   end
-
 end
