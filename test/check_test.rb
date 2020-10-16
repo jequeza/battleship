@@ -111,11 +111,4 @@ class CheckTest < MiniTest::Test
     assert_equal true, check6.valid
     assert_equal true, check7.valid
   end
-
-
-
-
-
-
-
 end
