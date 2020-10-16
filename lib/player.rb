@@ -11,7 +11,7 @@ class Player
   end
 
 
-  def place_player_ship_two(ship = submarine, input)
+  def place_player_ship_two(ship, input)
     if @board.valid_placement?(ship, input)
       coordinate = []
       coordinate << input
@@ -25,7 +25,7 @@ class Player
     # if pass, then ships are placed (*keep looping if not)
   end
 
-  def place_player_ship_three(ship = cruiser, input)
+  def place_player_ship_three(ship, input)
     if @board.valid_placement?(ship, input)
       coordinate = []
       coordinate << input
