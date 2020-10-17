@@ -1,4 +1,4 @@
-# require './lib/check'
+require './lib/check'
 require './lib/ship'
 require './lib/cell'
 require 'pry'

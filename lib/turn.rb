@@ -1,6 +1,8 @@
 require './lib/player'
 require './lib/computer'
 require './lib/board'
+require './lib/ship'
+
 
 class Turn
 
@@ -17,35 +19,30 @@ class Turn
     @computer.place_computer_ship_three
   end
 
-  def place_player_ship_1
-    coord_1 = gets.chomp
-    player.board.valid_coordinate?(coord_1)
-    coord_2 = gets.chomp
-    player.board.valid_coordinate?(coord_2)
-    coordinates = "#{coord_1} #{coord_2}"
-    player.place_player_ship_one(submarine, coordinates)
+  def place_player_ship_1(submarine)
+    player.place_player_ship_one(submarine)
   end
 
-  def place_player_ship_2
-    coord_1 = gets.chomp
-    player.board.valid_coordinate?(coord_1)
-    coord_2 = gets.chomp
-    player.board.valid_coordinate?(coord_2)
-    coord_3 = gets.chomp
-    player.board.valid_coordinate?(coord_3)
-    coordinates = "#{coord_1} #{coord_2} #{coord_3}"
-    player.place_player_ship_two(cruiser, coordinates)
+  def place_player_ship_2(cruiser)
+    player.place_player_ship_two(cruiser)
   end
 
 
   def player_shoots
-    fire_upon = gets.chomp
-    @computer.board.cells(fire).fire_upon
+    fire_upon = "A1"
+    @computer.board.cells[fire_upon].fire_upon
+    if @computer.board.cells[fire_upon].render == "H"
+      @computer.hits += 1
+    end
   end
 
   def computer_shoots
     fire = @computer.generate_coordinates_for_turn
-    @player.board.cells(fire).fire_upon
+    @player.board.cells[fire].fire_upon
+    if @player.board.cells[fire].render == "H"
+      @player.hits += 1
+    end
+
   end
 
   def computer_board
