@@ -28,13 +28,9 @@ class PlayerTest < Minitest::Test
     player_1 = Player.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-    player_1.place_player_ship_three(cruiser, ["A1", "A2", "A3"])
-    player_1.place_player_ship_two(submarine, ["B2", "B3"])
-    assert_equal "Cruiser" , player_1.board.cells["A3"].ship.name
-    assert_equal "Cruiser" , player_1.board.cells["A2"].ship.name
-    assert_equal "Cruiser" , player_1.board.cells["A1"].ship.name
-    assert_equal "Submarine", player_1.board.cells["B2"].ship.name
-    assert_equal "Submarine", player_1.board.cells["B3"].ship.name
+
+    assert_equal "Ship Set and ready to Fire!", player_1.place_player_ship_two(cruiser)
+    assert_equal "Ship Set and ready to Fire!", player_1.place_player_ship_one(submarine)
   end
 
 
