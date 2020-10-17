@@ -27,8 +27,7 @@ class Player
       puts overlap
       place_player_ship_one(ship)
     end
-    # get input from player for placing ships. input gets validated
-    # if pass, then ships are placed (*keep looping if not)
+
   end
 
   def place_player_ship_two(ship)
