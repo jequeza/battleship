@@ -54,10 +54,21 @@ class Turn
   end
 
   def ships_sunk?
-    @computer.ships_sunk? || @player.ships_sunk?
-    computer_board
-    player_board
-    @b = Time.now
+    if @computer.ships_sunk?
+      print winner
+      computer_board
+      player_board
+      @b = Time.now
+      game_time
+    elsif @player.ships_sunk?
+      print next_time
+      computer_board
+      player_board
+      @b = Time.now
+      game_time
+    else
+      false
+    end
   end
 
   def game_time

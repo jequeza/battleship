@@ -6,7 +6,9 @@ def game_on(game)
     game.computer_shoots
     puts game.computer_board
     puts game.player_board
-    break if game.ships_sunk?
+    if game.ships_sunk?
+      break
+    end
   end
 end
 
