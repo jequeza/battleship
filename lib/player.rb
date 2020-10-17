@@ -1,7 +1,9 @@
 require './lib/board.rb'
+require './lib/text'
 
 
 class Player
+  include Text
   attr_reader :board
 
   def initialize
@@ -12,35 +14,38 @@ class Player
 
 
   def place_player_ship_one(ship)
-    print "ship 1"
+    p co1
     coord_1 = gets.chomp.upcase
+    p co2
     coord_2 = gets.chomp.upcase
-    if board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
+    board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
       coordinates = ["#{coord_1}", "#{coord_2}"]
-    end
     if @board.valid_placement?(ship, coordinates)
         @board.place(ship, coordinates)
-        p "Ship Placed"
+        p set
     else
-      false
+      puts overlap
+      place_player_ship_one(ship)
     end
     # get input from player for placing ships. input gets validated
     # if pass, then ships are placed (*keep looping if not)
   end
 
   def place_player_ship_two(ship)
-    print "Ship 2"
+    p co1
     coord_1 = gets.chomp.upcase
+    p co2
     coord_2 = gets.chomp.upcase
+    p co2
     coord_3 = gets.chomp.upcase
-    if board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
-      coordinates = ["#{coord_1}", "#{coord_2}", "#{coord_3}"]
-    end
+    board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
+    coordinates = ["#{coord_1}", "#{coord_2}", "#{coord_3}"]
     if @board.valid_placement?(ship, coordinates)
-        @board.place(ship, coordinates)
-        p "Ship Placed"
+      @board.place(ship, coordinates)
+      p set
     else
-      false
+      p overlap
+      place_player_ship_two(ship)
     end
     # get input from for placing ships. input gets validated
     # if pass, then ships are placed (*keep looping if not)
