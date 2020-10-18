@@ -9,7 +9,6 @@ require './lib/turn'
 class TurnTest < MiniTest::Test
 
   def test_it_exists
-    # skip
     game = Turn.new
     binding.pry
 
@@ -17,7 +16,6 @@ class TurnTest < MiniTest::Test
   end
 
   def test_it_can_create_a_player
-    # skip
     game = Turn.new
     game.player_shoots
 
@@ -29,7 +27,6 @@ class TurnTest < MiniTest::Test
   end
 
   def test_it_can_create_a_computer
-    # skip
     game = Turn.new
     game.computer_shoots
 
@@ -41,7 +38,6 @@ class TurnTest < MiniTest::Test
   end
 
   def test_place_player_ship_1
-    # skip
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
@@ -50,41 +46,35 @@ class TurnTest < MiniTest::Test
   end
 
   def test_place_player_ship_2
-    # skip
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
 
     assert_equal "Ship Set and ready to Fire!", game.place_player_ship_2(cruiser)
-
   end
 
   def test_place_computer_ships
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
   end
 
   def test_player_shoots
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
   end
 
   def test_computer_shoots
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
   end
 
   def test_ships_sunk?
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
   end
 
 end

@@ -6,6 +6,7 @@ module Text
 
   def play
     p "Enter p to play or q to quit!"
+
   end
 
   def take_aim
@@ -24,9 +25,12 @@ module Text
   def layout
     p "I have laid out my ships on the grid."
     p "You now need to place your two ships."
+    sleep(3)
     p "The Cruiser is three units long and"
     p "the Submarine is two units long."
+    sleep(4)
     p "Make sure you dont overlap ships!"
+    sleep(3)
   end
 
   def cruiser
@@ -50,11 +54,7 @@ module Text
   end
 
   def set
-<<<<<<< HEAD
     p "Set and ready to Fire!"
-=======
-    p "set and ready to Fire!"
->>>>>>> d45f3cd51d4d5fac061883cde109309274d8113e
   end
 
   def fire
@@ -63,5 +63,9 @@ module Text
 
   def timer
     p "Game run time:"
+  end
+
+  def thanks_message
+   p "Come back when you're ready for a challenge."
   end
 end

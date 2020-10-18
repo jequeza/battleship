@@ -4,7 +4,6 @@ require './lib/board'
 require './lib/ship'
 require './lib/text'
 
-
 class Turn
 include Text
 
@@ -38,7 +37,6 @@ include Text
     p "#{ship_name.name} " + set
   end
 
-
   def player_shoots
     fire_upon = gets.chomp.upcase
     fire
@@ -54,7 +52,6 @@ include Text
     if @player.board.cells[fire].render == "H"
       @player.hit_taken
     end
-
   end
 
   def computer_board

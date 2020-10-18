@@ -6,10 +6,9 @@ class Player
   include Text
   attr_reader :board, :ships, :hits
 
-
   def initialize
     @hits = 0
-    @board = Board.new('Player_1:')
+    @board = Board.new('Your Board:')
     @possible = []
     @ships = 0
   end
@@ -23,7 +22,6 @@ class Player
       @possible << coords[0]
     end
   end
-
 
   def place_player_ship_one(ship)
     co1
@@ -39,7 +37,6 @@ class Player
       puts overlap
       place_player_ship_one(ship)
     end
-
   end
 
   def place_player_ship_two(ship)

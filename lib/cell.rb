@@ -26,27 +26,23 @@ class Cell
   end
 
   def fired_upon?
-    if ship.health == 0
-      return true
-    elsif  ship.length =~ ship.health
-      return true
-    else false
-    end
+    @shot_taken
   end
 
   def fire_upon
     if !empty?
       ship.hit
       @cell_status = "H"
+      @shot_taken = true
     else
       @cell_status = "M"
     end
   end
 
   def render(location = false)
-    if !empty?  && ship.health <= 0
+    if !empty? && ship.health <= 0
       @cell_status = "X"
-    elsif location == true && @cell_status == "."
+    elsif location == true && ship != nil && @shot_taken == false
       "S"
     else
       @cell_status
