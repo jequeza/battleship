@@ -5,7 +5,9 @@ include Text
 
 def game_on(game)
   loop do
+    take_aim
     game.player_shoots
+    comp_aim
     game.computer_shoots
     puts game.computer_board
     puts game.player_board

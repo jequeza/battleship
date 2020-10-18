@@ -33,7 +33,7 @@ include Text
   end
 
   def place_player_ship_2(ship_name)
-    ship_name
+    cruiser
     player.place_player_ship_two(ship_name)
     p "#{ship_name.name} " + set
   end
