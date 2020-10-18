@@ -2,19 +2,20 @@ require './lib/board'
 require 'pry'
 
 class Computer
-  attr_reader :board, :ships
+  attr_reader :board, :ships, :possible, :hits
   def initialize
     @possible_three_place = [["A1", "A2", "A3"], ["B3", "C3", "D3"], ["D2", "D3", "D4"]]
-    @possible_two_place = [["B1", "C1"], ["B4", "C4"]]
+    @possible_two_place = [["B1", "C1"], ["B4", "C4"], ["B2", "C2"]]
     @board = Board.new("Enemy Board:")
     @possible = []
-    @cells = computer_attack
+    @cells = computer_gen_cells
     @ships = 0
+    @hits = 0
   end
 
-  def computer_attack
+  def computer_gen_cells
     board.cells.map do |coords|
-      @possible << coords
+      @possible << coords[0]
     end
   end
 
@@ -29,11 +30,5 @@ class Computer
     board.place(ship_name, coordinates)
     @ships += 1
   end
-
-
-  def end_turn(input)
-    #delete possible coordinate after attack
-  end
-
 
 end

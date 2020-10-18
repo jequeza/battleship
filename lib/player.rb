@@ -4,7 +4,7 @@ require './lib/text'
 
 class Player
   include Text
-  attr_reader :board
+  attr_reader :board, :hits
 
   def initialize
     @board = Board.new('Player_1:')

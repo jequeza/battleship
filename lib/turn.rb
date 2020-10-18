@@ -47,7 +47,7 @@ include Text
   end
 
   def computer_shoots
-    fire = @computer.generate_coordinates_for_turn
+    fire = @computer.possible.shuffle!.pop
     @player.board.cells[fire].fire_upon
     if @player.board.cells[fire].render == "H"
       @player.hits += 1
