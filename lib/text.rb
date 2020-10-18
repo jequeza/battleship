@@ -42,7 +42,7 @@ module Text
   end
 
   def set
-    p "Ship Set and ready to Fire!"
+    p "Set and ready to Fire!"
   end
 
   def fire

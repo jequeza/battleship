@@ -26,20 +26,21 @@ include Text
     @computer.place_computer_ship_three(ship_1)
   end
 
-  def place_player_ship_1(submarine)
+  def place_player_ship_1(ship_name)
     sub
-    player.place_player_ship_one(submarine)
-    set
+    player.place_player_ship_one(ship_name)
+    p "#{ship_name.name} " + set
   end
 
-  def place_player_ship_2(cruiser)
-    cruiser
-    player.place_player_ship_two(cruiser)
+  def place_player_ship_2(ship_name)
+    ship_name
+    player.place_player_ship_two(ship_name)
+    p "#{ship_name.name} " + set
   end
 
 
   def player_shoots
-    fire_upon = "A1"
+    fire_upon = gets.chomp.upcase
     fire
     @computer.board.cells[fire_upon].fire_upon
     if @computer.board.cells[fire_upon].render == "H"

@@ -23,7 +23,6 @@ loop do
   layout
   game.place_player_ship_1(submarine)
   game.place_player_ship_2(cruiser)
-  set
   game.time_start
   game_on(game)
 end
