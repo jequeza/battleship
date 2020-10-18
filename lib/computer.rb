@@ -14,13 +14,13 @@ class Computer
     end
   end
 
-  def place_computer_ship_three(ship, coordinates)
+  def place_computer_ship_three(ship)
     #add code to check if coordinates have a valid placement
     #then add code to place the ship on those coordinates.
 
   end
 
-  def place_computer_ship_two(ship, coordinates)
+  def place_computer_ship_two(ship)
     #same as above
   end
 

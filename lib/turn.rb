@@ -21,25 +21,31 @@ include Text
     @a = Time.now
   end
 
-  def place_computer_ships
-    @computer.place_computer_ship_two
-    @computer.place_computer_ship_three
+  def place_computer_ships(ship_1, ship_2)
+    @computer.place_computer_ship_two(ship_1)
+    @computer.place_computer_ship_three(ship_2)
   end
 
   def place_player_ship_1(submarine)
-    p sub
+    sub
     player.place_player_ship_one(submarine)
   end
 
   def place_player_ship_2(cruiser)
-    p cruiser
+    cruiser
     player.place_player_ship_two(cruiser)
   end
 
 
   def player_shoots
-    fire_upon = "A1"
-    p fire
+    choose_coord
+    fire_upon = gets.chomp.upcase
+    if @computer.board.valid_coordinate?(fire_upon)
+      fire
+    else
+      overlap
+      player_shoots
+    end
     @computer.board.cells[fire_upon].fire_upon
     if @computer.board.cells[fire_upon].render == "H"
       @computer.hits += 1
@@ -65,13 +71,13 @@ include Text
 
   def ships_sunk?
     if @computer.ships_sunk?
-      print winner
+      winner
       computer_board
       player_board
       @b = Time.now
       game_time
     elsif @player.ships_sunk?
-      print next_time
+      next_time
       computer_board
       player_board
       @b = Time.now
@@ -82,7 +88,7 @@ include Text
   end
 
   def game_time
-    p timer (@b - @a).to_i
+    timer (@b - @a).to_i
   end
 
 end

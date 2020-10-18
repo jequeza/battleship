@@ -14,51 +14,41 @@ class Player
 
 
   def place_player_ship_one(ship)
-    p co1
+    co1
     coord_1 = gets.chomp.upcase
-    p co2
+    co2
     coord_2 = gets.chomp.upcase
     board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
       coordinates = ["#{coord_1}", "#{coord_2}"]
     if @board.valid_placement?(ship, coordinates)
         @board.place(ship, coordinates)
-        p set
+        set
     else
-      puts overlap
+      overlap
       place_player_ship_one(ship)
     end
 
   end
 
   def place_player_ship_two(ship)
-    p co1
+    co1
     coord_1 = gets.chomp.upcase
-    p co2
+    co2
     coord_2 = gets.chomp.upcase
-    p co2
+    co2
     coord_3 = gets.chomp.upcase
     board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
     coordinates = ["#{coord_1}", "#{coord_2}", "#{coord_3}"]
     if @board.valid_placement?(ship, coordinates)
       @board.place(ship, coordinates)
-      p set
+      set
     else
-      p overlap
+      overlap
       place_player_ship_two(ship)
     end
-    # get input from for placing ships. input gets validated
-    # if pass, then ships are placed (*keep looping if not)
   end
 
   def ships_sunk?
     @hits == 5
   end
-
-
-  def player_damage_phase
-    # gets input from player on what coordinates to fire upon, validates,
-    # stores every previous selection. Updates computer board display
-  end
-
-
 end
