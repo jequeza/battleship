@@ -3,14 +3,19 @@ require 'pry'
 
 class Computer
   attr_reader :board, :ships, :possible, :hits
+
   def initialize
+    @hits = 0
     @possible_three_place = [["A1", "A2", "A3"], ["B3", "C3", "D3"], ["D2", "D3", "D4"]]
     @possible_two_place = [["B1", "C1"], ["B4", "C4"], ["B2", "C2"]]
     @board = Board.new("Enemy Board:")
     @possible = []
     @cells = computer_gen_cells
     @ships = 0
-    @hits = 0
+  end
+
+  def hit_taken
+    @hits += 1
   end
 
   def computer_gen_cells
@@ -29,6 +34,10 @@ class Computer
     coordinates = @possible_two_place.sample
     board.place(ship_name, coordinates)
     @ships += 1
+  end
+
+  def ships_sunk?
+    @hits == 5
   end
 
 end

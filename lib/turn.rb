@@ -27,22 +27,23 @@ include Text
   end
 
   def place_player_ship_1(submarine)
-    p sub
+    sub
     player.place_player_ship_one(submarine)
+    set
   end
 
   def place_player_ship_2(cruiser)
-    p cruiser
+    cruiser
     player.place_player_ship_two(cruiser)
   end
 
 
   def player_shoots
     fire_upon = "A1"
-    p fire
+    fire
     @computer.board.cells[fire_upon].fire_upon
     if @computer.board.cells[fire_upon].render == "H"
-      @computer.hits += 1
+      @computer.hit_taken
     end
   end
 
@@ -50,7 +51,7 @@ include Text
     fire = @computer.possible.shuffle!.pop
     @player.board.cells[fire].fire_upon
     if @player.board.cells[fire].render == "H"
-      @player.hits += 1
+      @player.hit_taken
     end
 
   end
@@ -71,7 +72,7 @@ include Text
   end
 
   def game_time
-    p timer (@b - @a).to_i
+    timer (@b - @a).to_i
   end
 
 end

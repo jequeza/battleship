@@ -1,5 +1,6 @@
 require './lib/turn'
 require './lib/text'
+require 'pry'
 include Text
 
 def game_on(game)
@@ -17,12 +18,12 @@ loop do
   game = Turn.new
   cruiser = Ship.new("Cruiser", 3)
   submarine = Ship.new("Submarine", 2)
-  print start
+  start
   game.place_computer_ships(cruiser, submarine)
-  p layout
+  layout
   game.place_player_ship_1(submarine)
   game.place_player_ship_2(cruiser)
-  p set
+  set
   game.time_start
   game_on(game)
 end
