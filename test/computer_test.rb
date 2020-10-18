@@ -19,14 +19,10 @@ class ComputerTest < MiniTest::Test
     computer = Computer.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
-    computer.place_computer_ship_three(cruiser, ["A1", "A2", "A3"])
-    computer.place_computer_ship_two(submarine, ["B2", "B3"])
-    assert_equal "Cruiser" , computer.board.cells["A3"].ship.name
-    assert_equal "Cruiser" , computer.board.cells["A2"].ship.name
-    assert_equal "Cruiser" , computer.board.cells["A1"].ship.name
-    assert_equal "Submarine", computer.board.cells["B2"].ship.name
-    assert_equal "Submarine", computer.board.cells["B3"].ship.name
+    computer.place_computer_ship_three(cruiser)
+    assert_equal 1, computer.ships
+    computer.place_computer_ship_two(submarine)
+    assert_equal 2, computer.ships
   end
 
 end

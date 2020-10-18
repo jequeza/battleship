@@ -21,9 +21,9 @@ include Text
     @a = Time.now
   end
 
-  def place_computer_ships
-    @computer.place_computer_ship_two
-    @computer.place_computer_ship_three
+  def place_computer_ships(ship_1, ship_2)
+    @computer.place_computer_ship_two(ship_2)
+    @computer.place_computer_ship_three(ship_1)
   end
 
   def place_player_ship_1(submarine)
