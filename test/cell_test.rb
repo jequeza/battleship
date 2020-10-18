@@ -43,9 +43,9 @@ class CellTest < MiniTest::Test
   end
 
   def test_render_method_Hit
+    cruiser = Ship.new("Cruiser", 3)
     cell_1 = Cell.new("B4")
     cell_2 = Cell.new("C3")
-    cruiser = Ship.new("Cruiser", 3)
     cell_2.place_ship(cruiser)
     assert_equal ".", cell_2.render
     cell_2.fire_upon
@@ -53,18 +53,22 @@ class CellTest < MiniTest::Test
   end
 
   def test_render_true_locater
-    cell_1 = Cell.new("B4")
-    cell_2 = Cell.new("C3")
+    cell_1 = Cell.new("A1")
+    cell_2 = Cell.new("A2")
+    cell_3 = Cell.new("A3")
     cruiser = Ship.new("Cruiser", 3)
     cell_2.place_ship(cruiser)
+    cell_1.place_ship(cruiser)
+    cell_3.place_ship(cruiser)
     assert_equal "S", cell_2.render(true)
     cell_2.fire_upon
     assert_equal "H", cell_2.render
+    cell_1.fire_upon
+    assert_equal "H", cell_2.render
     assert_equal false, cruiser.sunk?
-    cruiser.hit
-    cruiser.hit
+    cell_3.fire_upon
     assert_equal true, cruiser.sunk?
-    assert_equal "X", cell_2.render
+    assert_equal "X", cell_3.render
   end
-  
+
 end
