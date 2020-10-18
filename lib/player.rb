@@ -4,7 +4,11 @@ require './lib/text'
 
 class Player
   include Text
+<<<<<<< HEAD
   attr_reader :board, :ships
+=======
+  attr_reader :board, :hits
+>>>>>>> 4c612e47a444efc18372a894a10a2856a9b52d6f
 
   def initialize
     @board = Board.new('Player_1:')

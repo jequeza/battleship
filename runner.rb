@@ -18,7 +18,7 @@ loop do
   cruiser = Ship.new("Cruiser", 3)
   submarine = Ship.new("Submarine", 2)
   print start
-  game.place_computer_ships
+  game.place_computer_ships(cruiser, submarine)
   p layout
   game.place_player_ship_1(submarine)
   game.place_player_ship_2(cruiser)

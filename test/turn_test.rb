@@ -11,6 +11,7 @@ class TurnTest < MiniTest::Test
   def test_it_exists
     # skip
     game = Turn.new
+    binding.pry
 
     assert_instance_of Turn, game
   end

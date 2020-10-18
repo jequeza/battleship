@@ -2,37 +2,33 @@ require './lib/board'
 require 'pry'
 
 class Computer
-  attr_reader :board
-  def initialize #no need for an argument here
-    @possible = []
+  attr_reader :board, :ships, :possible, :hits
+  def initialize
+    @possible_three_place = [["A1", "A2", "A3"], ["B3", "C3", "D3"], ["D2", "D3", "D4"]]
+    @possible_two_place = [["B1", "C1"], ["B4", "C4"], ["B2", "C2"]]
     @board = Board.new("Enemy Board:")
+    @possible = []
+    @cells = computer_gen_cells
+    @ships = 0
+    @hits = 0
   end
 
-  def generate_possible_attack_coordinates
+  def computer_gen_cells
     board.cells.map do |coords|
-      @possible << coords
+      @possible << coords[0]
     end
   end
 
-  def place_computer_ship_three(ship, coordinates)
-    #add code to check if coordinates have a valid placement
-    #then add code to place the ship on those coordinates.
-
+  def place_computer_ship_three(ship_name)
+    coordinates = @possible_three_place.sample
+    board.place(ship_name, coordinates)
+    @ships += 1
   end
 
-  def place_computer_ship_two(ship, coordinates)
-    #same as above
+  def place_computer_ship_two(ship_name)
+    coordinates = @possible_two_place.sample
+    board.place(ship_name, coordinates)
+    @ships += 1
   end
-
-
-
-  def generate_coordinates_for_turn
-    # generates random coordinates for turn,
-  end
-
-  def end_turn(input)
-    #delete possible coordinate after attack
-  end
-
 
 end
