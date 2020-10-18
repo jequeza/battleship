@@ -54,7 +54,6 @@ class Player
     if @board.valid_placement?(ship, coordinates)
       @board.place(ship, coordinates)
       @ships += 1
-      set
     else
       overlap
       place_player_ship_two(ship)
