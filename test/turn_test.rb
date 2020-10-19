@@ -19,10 +19,10 @@ class TurnTest < MiniTest::Test
     game = Turn.new
     game.player_shoots
 
-    assert_equal "Player_1:", game.player.board.name
+    assert_equal "Your Board:", game.player.board.name
     assert_equal 16, game.player.board.cells.count
     assert_nil   game.player.board.cells["A1"].ship
-    assert_equal "M", game.computer.board.cells["A1"].render
+    assert_equal ".", game.computer.board.cells["A1"].render
 
   end
 
@@ -30,7 +30,6 @@ class TurnTest < MiniTest::Test
     game = Turn.new
     game.computer_shoots
 
-    assert_equal "Computer:", game.player.board.name
     assert_equal 16, game.player.board.cells.count
     assert_nil   game.player.board.cells["A1"].ship
     assert_equal "M", game.player.board.cells["A1"].render
@@ -42,7 +41,7 @@ class TurnTest < MiniTest::Test
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
 
-    assert_equal "Ship Set and ready to Fire!",game.place_player_ship_1(submarine)
+    assert_equal "Submarine Set and ready to Fire!",game.place_player_ship_1(submarine)
   end
 
   def test_place_player_ship_2
@@ -50,31 +49,47 @@ class TurnTest < MiniTest::Test
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
 
-    assert_equal "Ship Set and ready to Fire!", game.place_player_ship_2(cruiser)
+    assert_equal "Cruiser Set and ready to Fire!", game.place_player_ship_2(cruiser)
   end
 
   def test_place_computer_ships
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
+    game.place_computer_ships
+
+    assert_equal 2, game.computer.ships
   end
 
   def test_player_shoots
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
+
+    assert_equal "M", game.player_shoots
   end
 
   def test_computer_shoots
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
+
+    assert_equal "M", game.computer_shoots
   end
 
   def test_ships_sunk?
     game = Turn.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
+
+    assert_equal false, game.ships_sunk?
+
+    game.computer.hit_taken
+    game.computer.hit_taken
+    game.computer.hit_taken
+    game.computer.hit_taken
+    game.computer.hit_taken
+    assert_equal true, game.ships_sunk?
   end
 
 end

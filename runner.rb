@@ -4,7 +4,7 @@ require 'pry'
 include Text
 
 def game_on(game)
-  until game.ships_sunk? == true
+  until game.ships_sunk? == true do
     puts game.computer_board
     sleep(2)
     puts game.player_board
@@ -16,9 +16,9 @@ def game_on(game)
     sleep(2)
     game.computer_shoots
   end
-  binding.pry
-  game.game_results
+    game.game_results
 end
+
 
 loop do
   game = Turn.new
@@ -40,7 +40,9 @@ loop do
    game.place_player_ship_2(cruiser)
    puts game.player_board
    game.time_start
-   game_on(game)
+   # binding.pry
+    game_on(game)
+   game.game_results
  elsif input == "q"
    thanks_message
    break

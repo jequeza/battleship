@@ -19,6 +19,9 @@ include Text
   def time_start
     @a = Time.now
   end
+  def time_end
+    @b = Time.now
+  end
 
   def place_computer_ships(ship_1, ship_2)
     @computer.place_computer_ship_two(ship_2)
@@ -43,6 +46,8 @@ include Text
     @computer.board.cells[fire_upon].fire_upon
     if @computer.board.cells[fire_upon].render == "H"
       @computer.hit_taken
+    elsif @computer.board.cells[fire_upon].render == "X"
+      @computer.hit_taken
     end
   end
 
@@ -50,6 +55,8 @@ include Text
     fire = @computer.possible.shuffle!.pop
     @player.board.cells[fire].fire_upon
     if @player.board.cells[fire].render == "H"
+      @player.hit_taken
+    elsif @player.board.cells[fire].render == "X"
       @player.hit_taken
     end
   end
@@ -64,23 +71,18 @@ include Text
 
   def ships_sunk?
     @computer.ships_sunk? || @player.ships_sunk?
-    computer_board
-    player_board
-    @b = Time.now
   end
 
   def game_results
     if @computer.ships_sunk?
       p congrats
-      p game_time
     elsif @player.ships_sunk?
       p nice_try
-      p game_time
     end
   end
 
   def game_time
-    timer (@b - @a).to_i
+    @b.to_i - @a.to_i
   end
 
 end
