@@ -4,7 +4,7 @@ require 'pry'
 include Text
 
 def game_on(game)
-  loop do
+  until game.ships_sunk? == true
     puts game.computer_board
     sleep(2)
     puts game.player_board
@@ -15,8 +15,9 @@ def game_on(game)
     comp_aim
     sleep(2)
     game.computer_shoots
-    # break if game.ships_sunk?
   end
+  binding.pry
+  game.game_results
 end
 
 loop do

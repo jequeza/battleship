@@ -54,7 +54,7 @@ module Text
   end
 
   def set
-    p "Set and ready to Fire!"
+    "Set and ready to Fire!"
   end
 
   def fire
@@ -63,6 +63,14 @@ module Text
 
   def timer
     p "Game run time:"
+  end
+
+  def congrats
+    p "------WINNER!!!!--------"
+  end
+
+  def nice_try
+    p "BETTER LUCK NEXT TIME!"
   end
 
   def thanks_message

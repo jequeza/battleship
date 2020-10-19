@@ -69,6 +69,16 @@ include Text
     @b = Time.now
   end
 
+  def game_results
+    if @computer.ships_sunk?
+      p congrats
+      p game_time
+    elsif @player.ships_sunk?
+      p nice_try
+      p game_time
+    end
+  end
+
   def game_time
     timer (@b - @a).to_i
   end
