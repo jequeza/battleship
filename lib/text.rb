@@ -22,6 +22,10 @@ module Text
     p "Please choose different coordinates!"
   end
 
+  def invalid
+    p "Please choose a valid Coordinate"
+  end
+
   def layout
     p "I have laid out my ships on the grid."
     p "You now need to place your two ships."

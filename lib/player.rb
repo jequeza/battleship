@@ -28,8 +28,14 @@ class Player
     coord_1 = gets.chomp.upcase
     co2
     coord_2 = gets.chomp.upcase
-    board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
-      coordinates = ["#{coord_1}", "#{coord_2}"]
+    until board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
+      invalid
+      co1
+      coord_1 = gets.chomp.upcase
+      co2
+      coord_2 = gets.chomp.upcase
+    end
+    coordinates = ["#{coord_1}", "#{coord_2}"]
     if @board.valid_placement?(ship, coordinates)
         @board.place(ship, coordinates)
         @ships += 1
@@ -46,7 +52,15 @@ class Player
     coord_2 = gets.chomp.upcase
     co3
     coord_3 = gets.chomp.upcase
-    board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
+    until board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
+      invalid
+      co1
+      coord_1 = gets.chomp.upcase
+      co2
+      coord_2 = gets.chomp.upcase
+      co3
+      coord_3 = gets.chomp.upcase
+    end
     coordinates = ["#{coord_1}", "#{coord_2}", "#{coord_3}"]
     if @board.valid_placement?(ship, coordinates)
       @board.place(ship, coordinates)

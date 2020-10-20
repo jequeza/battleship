@@ -42,8 +42,12 @@ include Text
 
   def player_shoots
     fire_upon = gets.chomp.upcase
-    fire
-    @computer.board.cells[fire_upon].fire_upon
+    until @computer.board.valid_coordinate?(fire_upon)
+      invalid
+      fire_upon = gets.chomp.upcase
+    end
+      fire
+      @computer.board.cells[fire_upon].fire_upon
     if @computer.board.cells[fire_upon].render == "H"
       @computer.hit_taken
     elsif @computer.board.cells[fire_upon].render == "X"
@@ -75,9 +79,9 @@ include Text
 
   def game_results
     if @computer.ships_sunk?
-      p congrats
+      congrats
     elsif @player.ships_sunk?
-      p nice_try
+      nice_try
     end
   end
 
