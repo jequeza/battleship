@@ -3,23 +3,6 @@ require './lib/text'
 require 'pry'
 include Text
 
-def game_on(game)
-  until game.ships_sunk? == true do
-    puts game.computer_board
-    sleep(2)
-    puts game.player_board
-    sleep(2)
-    take_aim
-    sleep(1)
-    game.player_shoots
-    comp_aim
-    sleep(2)
-    game.computer_shoots
-  end
-    game.game_results
-end
-
-
 loop do
   game = Turn.new
   cruiser = Ship.new("Cruiser", 3)
@@ -39,10 +22,7 @@ loop do
    sleep(2)
    game.place_player_ship_2(cruiser)
    puts game.player_board
-   game.time_start
-   # binding.pry
-    game_on(game)
-   game.game_results
+  game.game_on
  elsif input == "q"
    thanks_message
    break

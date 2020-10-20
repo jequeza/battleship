@@ -70,7 +70,8 @@ module Text
   end
 
   def congrats
-    p "------WINNER!!!!--------"
+    puts "------- WINNER! -------"
+    puts "--YOU SANK MY CRUISER!--"
   end
 
   def nice_try

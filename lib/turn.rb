@@ -7,20 +7,27 @@ require './lib/text'
 class Turn
 include Text
 
-  attr_reader :player, :computer, :a, :b
+  attr_reader :player, :computer
 
   def initialize
     @player = Player.new
     @computer = Computer.new
-    @a = a
-    @b = b
   end
 
-  def time_start
-    @a = Time.now
-  end
-  def time_end
-    @b = Time.now
+  def game_on
+    until ships_sunk? == true do
+      puts computer_board
+      sleep(2)
+      puts player_board
+      sleep(2)
+      take_aim
+      sleep(1)
+      player_shoots
+      comp_aim
+      sleep(2)
+      computer_shoots
+    end
+      game_results
   end
 
   def place_computer_ships(ship_1, ship_2)
@@ -83,10 +90,6 @@ include Text
     elsif @player.ships_sunk?
       nice_try
     end
-  end
-
-  def game_time
-    @b.to_i - @a.to_i
   end
 
 end
