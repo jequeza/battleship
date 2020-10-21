@@ -2,14 +2,13 @@ class Text
 
   def initialize
   end
-  
+
   def start
     p "Welcome to BATTLESHIP"
   end
 
   def play
     p "Enter p to play or q to quit!"
-
   end
 
   def take_aim

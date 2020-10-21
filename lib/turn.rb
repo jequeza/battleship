@@ -6,7 +6,9 @@ require './lib/text'
 
 class Turn
 
-  attr_reader :player, :computer, :text
+  attr_reader :player,
+              :computer,
+              :text
 
   def initialize
     @player = Player.new

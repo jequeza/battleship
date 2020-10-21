@@ -2,7 +2,10 @@ require './lib/board'
 
 
 class Computer
-  attr_reader :board, :ships, :possible, :hits
+  attr_reader :board,
+              :ships,
+              :possible,
+              :hits
 
   def initialize
     @hits = 0

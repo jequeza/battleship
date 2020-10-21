@@ -1,4 +1,4 @@
-require './lib/ship.rb'
+require './lib/ship'
 
 class Cell
   attr_reader :coordinate,

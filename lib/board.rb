@@ -1,10 +1,10 @@
 require './lib/check'
 require './lib/ship'
 require './lib/cell'
-require 'pry'
 
 class Board
-  attr_reader :name, :cells
+  attr_reader :name,
+              :cells
 
   def initialize(name="default")
     @name = name

@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/ship'
 require './lib/cell'
 require './lib/board'
@@ -10,7 +9,6 @@ class PlayerTest < Minitest::Test
 
   def test_player_has_a_board
     player_1 = Player.new
-
     assert_equal 16, player_1.board.cells.count
     assert_instance_of Player, player_1
   end
@@ -28,11 +26,8 @@ class PlayerTest < Minitest::Test
     player_1 = Player.new
     cruiser = Ship.new("Cruiser", 3)
     submarine = Ship.new("Submarine", 2)
-
     assert_equal "Ship Set and ready to Fire!", player_1.place_player_ship_two(cruiser)
     assert_equal "Ship Set and ready to Fire!", player_1.place_player_ship_one(submarine)
   end
-
-
 
 end

@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/ship'
 require './lib/cell'
 require './lib/board'
@@ -10,7 +9,6 @@ class ComputerTest < MiniTest::Test
 
   def test_it_has_a_board
     computer = Computer.new
-
     assert_equal 16, computer.board.cells.count
     assert_instance_of Computer, computer
   end

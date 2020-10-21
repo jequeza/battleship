@@ -3,7 +3,10 @@ require './lib/text'
 
 
 class Player
-  attr_reader :board, :ships, :hits, :text
+  attr_reader :board,
+              :ships,
+              :hits,
+              :text
 
   def initialize
     @hits = 0

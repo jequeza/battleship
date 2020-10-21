@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/text'
-require 'pry'
 
 class TextTest < MiniTest::Test
+  
   def test_it_exists_and_has_attribute
     text = Text.new
     assert_instance_of Text, text
