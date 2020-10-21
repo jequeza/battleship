@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/ship'
 require './lib/cell'
 require './lib/board'
+require './lib/check'
 
 
 class BoardTest < MiniTest::Test

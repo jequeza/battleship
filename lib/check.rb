@@ -1,7 +1,8 @@
-require './lib/board.rb'
+require './lib/board'
 
 class Check
-  attr_reader :coordinates, :valid
+  attr_reader :coordinates,
+              :valid
 
   def initialize(coordinates)
     @coordinates = coordinates

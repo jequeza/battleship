@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/ship'
 require './lib/cell'
 require './lib/board'
@@ -10,7 +9,6 @@ class CheckTest < MiniTest::Test
 
   def test_it_exists
     check = Check.new(["A1", "A2", "A3"])
-
     assert_instance_of Check, check
     assert_equal  true, check.valid
   end
@@ -29,7 +27,6 @@ class CheckTest < MiniTest::Test
     check10 = Check.new(["A3", "C3"])
     check11 = Check.new(["D2", "C4"])
     check12 = Check.new(["C2", "B4"])
-
     assert_equal false, check1.valid
     assert_equal false, check2.valid
     assert_equal false, check3.valid
@@ -59,7 +56,6 @@ class CheckTest < MiniTest::Test
     check10 = Check.new(["A3", "C3", "D3"])
     check11 = Check.new(["D1", "D2", "C4"])
     check12 = Check.new(["C1", "C2", "B4"])
-
     assert_equal false, check1.valid
     assert_equal false, check2.valid
     assert_equal false, check3.valid
@@ -83,7 +79,6 @@ class CheckTest < MiniTest::Test
     check5 = Check.new(["B1", "C1"])
     check6 = Check.new(["C2", "D2"])
     check7 = Check.new(["A4", "B4"])
-
     assert_equal true, check1.valid
     assert_equal true, check2.valid
     assert_equal true, check3.valid
@@ -102,7 +97,6 @@ class CheckTest < MiniTest::Test
     check5 = Check.new(["A1", "B1", "C1"])
     check6 = Check.new(["B2", "C2", "D2"])
     check7 = Check.new(["A4", "B4", "C4"])
-
     assert_equal true, check1.valid
     assert_equal true, check2.valid
     assert_equal true, check3.valid
@@ -111,4 +105,5 @@ class CheckTest < MiniTest::Test
     assert_equal true, check6.valid
     assert_equal true, check7.valid
   end
+  
 end
