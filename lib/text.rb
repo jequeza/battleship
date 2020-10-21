@@ -1,5 +1,8 @@
-module Text
+class Text
 
+  def initialize
+  end
+  
   def start
     p "Welcome to BATTLESHIP"
   end
@@ -10,10 +13,12 @@ module Text
   end
 
   def take_aim
+    sleep(1)
     p "Choose a coordinate from the enemy board to fire upon!"
   end
 
   def comp_aim
+    sleep(1)
     p "Zeroing in on your Cruiser location!"
   end
 
@@ -23,22 +28,23 @@ module Text
   end
 
   def invalid
+    sleep(1)
     p "Please choose a valid Coordinate"
   end
 
   def layout
     p "I have laid out my ships on the grid."
     p "You now need to place your two ships."
-    sleep(3)
+    sleep(1)
     p "The Cruiser is three units long and"
     p "the Submarine is two units long."
-    sleep(4)
+    sleep(2)
     p "Make sure you dont overlap ships!"
-    sleep(3)
+    sleep(1)
   end
 
   def cruiser
-    puts "Lets place your Cruiser!"
+    p "Lets place your Cruiser!"
   end
 
   def sub
@@ -58,24 +64,55 @@ module Text
   end
 
   def set
-    "Set and ready to Fire!"
+    p "Set and ready to Fire!"
   end
 
   def fire
-    p ["Fire!", "Release the Torpedo!", "Bombs Away!"].sample
-  end
-
-  def timer
-    p "Game run time:"
+    p ["Fire!", "Release the Torpedo!", "Bombs Away!", "Pay the iron price!", "Winter is coming."].sample
   end
 
   def congrats
-    puts "------- WINNER! -------"
-    puts "--YOU SANK MY CRUISER!--"
+    p "------- WINNER! -------"
+    p "--YOU SANK MY SHIPS!--"
+    p "---NEW CHAMPION IN THE ARENA---"
+  end
+
+  def winner
+    puts """##      ## #### ##    ## ##    ## ######## ########
+##  ##  ##  ##  ###   ## ###   ## ##       ##     ##
+##  ##  ##  ##  ####  ## ####  ## ##       ##     ##
+##  ##  ##  ##  ## ## ## ## ## ## ######   ########
+##  ##  ##  ##  ##  #### ##  #### ##       ##   ##
+##  ##  ##  ##  ##   ### ##   ### ##       ##    ##
+ ###  ###  #### ##    ## ##    ## ######## ##     ##  """
   end
 
   def nice_try
-    p "BETTER LUCK NEXT TIME!"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀"
+    puts "  ██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼"
+    puts "  ██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀"
+    puts "  ██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼"
+    puts "  ███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼"
+    puts "  ██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼"
+    puts "  ██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼"
+    puts "  ██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼"
+    puts "  ███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼"
+    puts "  ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼"
   end
 
   def thanks_message

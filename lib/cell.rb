@@ -36,6 +36,7 @@ class Cell
       @shot_taken = true
     else
       @cell_status = "M"
+      @shot_taken = true
     end
   end
 

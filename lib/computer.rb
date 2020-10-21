@@ -1,5 +1,5 @@
 require './lib/board'
-require 'pry'
+
 
 class Computer
   attr_reader :board, :ships, :possible, :hits

@@ -1,16 +1,16 @@
-require './lib/board.rb'
+require './lib/board'
 require './lib/text'
 
 
 class Player
-  include Text
-  attr_reader :board, :ships, :hits
+  attr_reader :board, :ships, :hits, :text
 
   def initialize
     @hits = 0
     @board = Board.new('Your Board:')
     @possible = []
     @ships = 0
+    @text = Text.new
   end
 
   def hit_taken
@@ -24,15 +24,15 @@ class Player
   end
 
   def place_player_ship_one(ship)
-    co1
+    text.co1
     coord_1 = gets.chomp.upcase
-    co2
+    text.co2
     coord_2 = gets.chomp.upcase
     until board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2)
-      invalid
-      co1
+      text.invalid
+      text.co1
       coord_1 = gets.chomp.upcase
-      co2
+      text.co2
       coord_2 = gets.chomp.upcase
     end
     coordinates = ["#{coord_1}", "#{coord_2}"]
@@ -40,25 +40,25 @@ class Player
         @board.place(ship, coordinates)
         @ships += 1
     else
-      puts overlap
+      text.overlap
       place_player_ship_one(ship)
     end
   end
 
   def place_player_ship_two(ship)
-    co1
+    text.co1
     coord_1 = gets.chomp.upcase
-    co2
+    text.co2
     coord_2 = gets.chomp.upcase
-    co3
+    text.co3
     coord_3 = gets.chomp.upcase
     until board.valid_coordinate?(coord_1) && board.valid_coordinate?(coord_2) && board.valid_coordinate?(coord_3)
-      invalid
-      co1
+      text.invalid
+      text.co1
       coord_1 = gets.chomp.upcase
-      co2
+      text.co2
       coord_2 = gets.chomp.upcase
-      co3
+      text.co3
       coord_3 = gets.chomp.upcase
     end
     coordinates = ["#{coord_1}", "#{coord_2}", "#{coord_3}"]
@@ -66,7 +66,7 @@ class Player
       @board.place(ship, coordinates)
       @ships += 1
     else
-      overlap
+      text.overlap
       place_player_ship_two(ship)
     end
   end
